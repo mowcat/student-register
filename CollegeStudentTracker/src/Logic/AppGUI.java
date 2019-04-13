@@ -28,7 +28,7 @@ public class AppGUI {
 	private List<JComboBox<String>> boxes;
 	private List<JTextField> fields;
 	private AppLogic logic;
-	
+
 	public AppGUI () {
 		JButton nameButton = new JButton();
 		JButton ageButton = new JButton();
@@ -40,7 +40,7 @@ public class AppGUI {
 		AppLogic logic = new AppLogic(5);
 		JFrame mainFrame = new JFrame("Student Tracker");
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.setPreferredSize( new Dimension (800, 600) ); 
+		mainFrame.setPreferredSize( new Dimension (800, 600) );
 		java.net.URL url = ClassLoader.getSystemResource("");
 		JPanel gridPanel = new JPanel();
 		gridPanel.setPreferredSize( new Dimension (800,600) );
@@ -52,29 +52,29 @@ public class AppGUI {
 			fields.add( new JTextField(logic.getRegister().get(i).height + ""));
 			boxes.add(new JComboBox<String>(Student.subjects));
 		}
-		
+
 		JButton name = new JButton("Name");
 		JButton age = new JButton("Age(years)");
 		JButton email = new JButton("Email Address");
 		JButton height = new JButton("Height(m)");
 		JButton subject = new JButton("Subject");
-		
+
 		gridPanel.add(name);
 		gridPanel.add(age);
 		gridPanel.add(email);
 		gridPanel.add(height);
 		gridPanel.add(subject);
-		
+
 		for (int i = 0; i < logic.getRegister().size(); i+= 1) {
 			gridPanel.add(fields.get(i * 4));
 			gridPanel.add(fields.get((i * 4) + 1));
 			gridPanel.add(fields.get((i * 4) + 2));
 			gridPanel.add(fields.get((i * 4) + 3));
 			gridPanel.add(boxes.get(i));
-		
+
 		mainFrame.add(gridPanel);
 		gridPanel.setVisible(true);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		JMenu menu = new JMenu("File");
 		menuBar.add(menu);
@@ -85,7 +85,7 @@ public class AppGUI {
 		       System.exit(0);
 		    }
 		});
-		
+
 		JMenu menu2 = new JMenu("Options");
 		menuBar.add(menu2);
 		JMenuItem menuitem3 = new JMenuItem("Exit");
@@ -94,28 +94,22 @@ public class AppGUI {
 		       System.exit(0);
 		    }
 		});
-		  
+
 		JMenuItem menuitem2 = new JMenuItem("Save to text format...");
 		menuitem2.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent ev) {
 		    	JTextArea printArea = new JTextArea();
-		    	JFrame textFrame = new JFrame("Text-based Register");  
-		    	for (int i = 0; i < logic.getRegister().size(); i+= 1) {
-					printArea.add(fields.get(i * 4));
-					printArea.add(fields.get((i * 4) + 1));
-					printArea.add(fields.get((i * 4) + 2));
-					printArea.add(fields.get((i * 4) + 3));
-					printArea.add(boxes.get(i));
-		    	}
+		    	JFrame textFrame = new JFrame("Text-based Register");
+
 		    	textFrame.setPreferredSize( new Dimension(800,600));
 		    	textFrame.add(printArea);
 		    	textFrame.pack();
 		    	textFrame.setVisible(true);
-		}  
+		}
 		});
 		menu.add(menuitem1);
 		menu.add(menuitem2);
-		
+
 		mainFrame.pack();
 		mainFrame.setVisible(true);
 		}
