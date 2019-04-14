@@ -94,13 +94,19 @@ public class AppGUI {
 		       System.exit(0);
 		    }
 		});
-
+		//WIP ActionListener look at projects//
 		JMenuItem menuitem2 = new JMenuItem("Save to text format...");
 		menuitem2.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent ev) {
 		    	JTextArea printArea = new JTextArea();
 		    	JFrame textFrame = new JFrame("Text-based Register");
-
+		    	for (int i = 0; i < logic.getRegister().size(); i+= 1) {
+					printArea.add(fields.get(i * 4));
+					printArea.add(fields.get((i * 4) + 1));
+					printArea.add(fields.get((i * 4) + 2));
+					printArea.add(fields.get((i * 4) + 3));
+					printArea.add(boxes.get(i));
+		    	}
 		    	textFrame.setPreferredSize( new Dimension(800,600));
 		    	textFrame.add(printArea);
 		    	textFrame.pack();
