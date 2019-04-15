@@ -1,7 +1,7 @@
 package Logic;
 
 public class Student {
-	public static String[] subjects = {"-SELECT-","Computer Science", "Maths", "English", "Biology", "Latin", "Mandarin", "Firestarting"};
+	public static String[] subjects = {"Please select...","Computer Science", "Maths", "English", "Biology", "Latin", "Mandarin", "Firestarting"};
 	String name;
 	int age;
 	String email;
