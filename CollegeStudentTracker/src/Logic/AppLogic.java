@@ -8,11 +8,11 @@ public class AppLogic {
 	public List<Student> getRegister() {
 		return register;
 	}
-	
+
 	public void setRegister(List<Student> register) {
 		this.register = register;
 	}
-	
+
 	public AppLogic (int numberOfDefaultStudents) {
 		register = new ArrayList<Student>();
 		for (int i = 0; i < numberOfDefaultStudents; i++) {
